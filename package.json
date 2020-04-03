@@ -1,0 +1,22 @@
+{
+  "name": "templateengine",
+  "version": "1.0.0",
+  "description": "A node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsarra1018/TemplateEngine.git"
+  },
+  "author": "Darren Sarra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dsarra1018/TemplateEngine/issues"
+  },
+  "homepage": "https://github.com/dsarra1018/TemplateEngine#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0"
+  }
+}

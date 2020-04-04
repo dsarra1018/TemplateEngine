@@ -2,7 +2,7 @@
   "name": "templateengine",
   "version": "1.0.0",
   "description": "A node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest --verbose test/*"
   },

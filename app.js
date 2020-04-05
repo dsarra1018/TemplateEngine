@@ -10,6 +10,10 @@ const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
 const render = require("./lib/htmlRenderer");
 
+// an array that holds team members
+const teamMembers = []
+
+// initializes the creation of team
 function createTeam() {
     // welcome message
     console.log('Welcome. Let\'s start!');
@@ -18,14 +22,13 @@ function createTeam() {
     inquirer.prompt(employeeQuestion).then( ({role}) => {
         if (role === 'Manager') {
             console.log(`You're a ${role}, you may now create your team.`);
+            
         }
         else {
-            console.log(`You're an ${role}, you don't have the authorization to create a team.`);
+            console.log(`You're an ${role}, you don't have the authorization to create a team. \nGood-bye!`);
         }
     })
-
 }
-
 
 // questions
 const employeeQuestion = [
@@ -36,5 +39,6 @@ const employeeQuestion = [
         choices: ['Engineer', 'Intern', 'Manager']
     }
 ]
+
 
 createTeam();

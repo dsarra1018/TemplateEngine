@@ -54,7 +54,13 @@ function createMember() {
     })
 }
 
-// prompt
+// render team's HTML
+function renderHTML(array) {
+    let teamHTML = render(array);
+    fs.writeFile(outputPath, teamHTML, (error) => console.log(error)); 
+}
+
+// prompts
 const employeePrompt = [
     {
         type: 'list',

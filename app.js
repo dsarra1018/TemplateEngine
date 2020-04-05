@@ -41,7 +41,12 @@ function createMember() {
                 teamMembers.push(new Engineer(name, teamMembers.length, email, github));
                 createMember();
             });
-            
+        }
+        else if (option === 'Intern') {
+            inquirer.prompt(internPrompt).then( ({name, email, school}) => {
+                teamMembers.push(new Intern(name, teamMembers.length, email, school));
+                createMember();
+            })
         }
         else {
             console.log("Nothing");

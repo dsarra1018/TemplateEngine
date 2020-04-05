@@ -24,10 +24,27 @@ function createTeam() {
             console.log(`You're a ${role}, you may now create your team.`);
             inquirer.prompt(managerPrompt).then( ({name, email, officeNumber}) => {
                 teamMembers.push(new Manager(name, teamMembers.length, email, officeNumber))
+                createMember();
             })
         }
         else {
-            console.log(`You're an ${role}, you don't have the authorization to create a team. \nGood-bye!`);
+            console.log(`You're an ${role}, you don't have the authorization to create a team. \nProgram Ending!`);
+        }
+    })
+}
+
+// creating instances of members
+function createMember() {
+    inquirer.prompt(optionsPrompt).then( ({option}) => {
+        if (option === 'Engineer') {
+            inquirer.prompt(engineerPrompt).then( ({name, email, github}) => {
+                teamMembers.push(new Engineer(name, teamMembers.length, email, github));
+                createMember();
+            });
+            
+        }
+        else {
+            console.log("Nothing");
         }
     })
 }
@@ -99,13 +116,10 @@ const managerPrompt = [
 const optionsPrompt = [
     {
         type: 'list',
-        name: 'role',
+        name: 'option',
         message: 'What role do you want to create?',
-        choices: ['Engineer', 'Intern', new inquirer.Separator(), 'End Program']
+        choices: ['Engineer', 'Intern', new inquirer.Separator(), 'End Prompt. Create HTML']
     }
 ]
-
-
-
 
 createTeam();

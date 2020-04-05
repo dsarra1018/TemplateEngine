@@ -22,10 +22,9 @@ function createTeam() {
     inquirer.prompt(employeePrompt).then( ({role}) => {
         if (role === 'Manager') {
             console.log(`You're a ${role}, you may now create your team.`);
-            inquirer.prompt()
-
-
-            
+            inquirer.prompt(managerPrompt).then( ({name, email, officeNumber}) => {
+                teamMembers.push(new Manager(name, teamMembers.length, email, officeNumber))
+            })
         }
         else {
             console.log(`You're an ${role}, you don't have the authorization to create a team. \nGood-bye!`);

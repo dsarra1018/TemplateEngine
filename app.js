@@ -19,9 +19,12 @@ function createTeam() {
     console.log('Welcome. Let\'s start!');
 
     // prompt the user for their role
-    inquirer.prompt(employeeQuestion).then( ({role}) => {
+    inquirer.prompt(employeePrompt).then( ({role}) => {
         if (role === 'Manager') {
             console.log(`You're a ${role}, you may now create your team.`);
+            inquirer.prompt()
+
+
             
         }
         else {
@@ -30,8 +33,8 @@ function createTeam() {
     })
 }
 
-// questions
-const employeeQuestion = [
+// prompt
+const employeePrompt = [
     {
         type: 'list',
         name: 'role',
@@ -39,6 +42,71 @@ const employeeQuestion = [
         choices: ['Engineer', 'Intern', 'Manager']
     }
 ]
+
+const engineerPrompt = [
+    {
+        type: 'input',
+        name: 'name',
+        message: 'Enter name: '
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter email address: '
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter github account: '
+    }
+]
+
+const internPrompt = [
+    {
+        type: 'input',
+        name: 'name',
+        message: 'Enter name: '
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter email: '
+    },
+    {
+        type: 'input',
+        name: 'school',
+        message: 'Enter school name: '
+    }
+]
+
+const managerPrompt = [
+    {
+        type: 'input',
+        name: 'name',
+        message: 'Enter name: '
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter email address: '
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: 'Enter office number: '
+    }
+]
+
+const optionsPrompt = [
+    {
+        type: 'list',
+        name: 'role',
+        message: 'What role do you want to create?',
+        choices: ['Engineer', 'Intern', new inquirer.Separator(), 'End Program']
+    }
+]
+
+
 
 
 createTeam();

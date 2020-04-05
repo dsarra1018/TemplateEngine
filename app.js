@@ -49,7 +49,8 @@ function createMember() {
             })
         }
         else {
-            console.log("Nothing");
+            renderHTML(teamMembers);
+            console.log("HTML has been rendered successfully.");
         }
     })
 }
@@ -57,7 +58,7 @@ function createMember() {
 // render team's HTML
 function renderHTML(array) {
     let teamHTML = render(array);
-    fs.writeFile(outputPath, teamHTML, (error) => console.log(error)); 
+    fs.writeFile(outputPath, teamHTML, (err) => console.log(err)); 
 }
 
 // prompts
